@@ -36,7 +36,12 @@ public class StackOfIntegers {
     }
 
     public int peek() {
-        return elements[currSize-1];
+        if(!isEmpty())
+            return elements[currSize-1];
+        else{
+            System.out.println("Stack is empty!");
+            return -1;
+        }
     }
 
     public void push(int value) {
@@ -47,9 +52,10 @@ public class StackOfIntegers {
     }
 
     public int pop() {
-        if (currSize - 1 >= 0) {
+        if (!isEmpty()) {
             return elements[--currSize];
-        } else {
+        } 
+        else {
             System.out.println("Stack is empty!");
             return -1;
         }

@@ -11,7 +11,7 @@ package StackOfIntegers;
  */
 public class TestStack {
     public static void main(String[] args) {
-        int cap=100;
+        int cap=50;
         
         StackOfIntegers stack = new StackOfIntegers(cap);
         System.out.println(stack.isEmpty());
@@ -26,5 +26,8 @@ public class TestStack {
         for (int i = cap-1; i>=0; i--) {
             System.out.println("pop: "+stack.pop());
         }
+        System.out.println(stack.peek());
+        stack.push(50);
+        System.out.println(stack.pop());
     }
 }
