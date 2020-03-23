@@ -15,6 +15,10 @@ public class MidtermSummary {
 
     public static void main(String[] args) {
         polymorphism();
+        String a = "AbasdffffssxxA",b="abC";
+        a+="holy";
+        a+=b;
+        System.out.println(a);
     }
     public static void basicClass(){
         Person sticky = new Person();

@@ -29,4 +29,40 @@ public class Foo {
         return a*2;
     }
     
+    public static void main(String[] args) {
+        Fa f = new Fa();
+        if(f instanceof Fa){
+            System.out.println("1");
+        }
+        if(f instanceof Na){
+            System.out.println("2");
+        }
+        if(f instanceof Bar){
+            System.out.println("3");
+        }
+        if(f instanceof Object){
+            System.out.println("4");
+        }
+    }
+}
+
+class Bar{
+    int x=99;
+    public Bar() {
+        System.out.println("Bar");
+    }
+    
+}
+class Na extends Bar{
+    public Na(){
+        System.out.println("Na");
+    }
+}
+class Fa extends Na{
+
+    public Fa() {
+        System.out.println("Fa");
+        System.out.println(this.x);
+    }
+    
 }
