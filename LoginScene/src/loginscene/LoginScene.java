@@ -17,6 +17,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class LoginScene extends Application {
@@ -36,16 +38,20 @@ public class LoginScene extends Application {
         passwordField.setPromptText("password");
 
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(20)); //adding "edge" area
-        grid.setHgap(5);
+        grid.setPadding(new Insets(10)); //adding "edge" area
+        grid.setHgap(10);
         grid.setVgap(10);
         grid.setAlignment(Pos.CENTER);
         grid.add(new Label("Username"), 0, 0); //item, column, row
         grid.add(usernameField, 1, 0);
         grid.add(new Label("Password"), 0, 1);
         grid.add(passwordField, 1, 1);
-        grid.add(loginButton, 1, 2);
-        grid.add(clearButton, 2,2);
+        
+        HBox hBox = new HBox();
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setSpacing(10);
+        hBox.getChildren().addAll(loginButton,clearButton);
+        grid.add(hBox, 1, 2);
         grid.add(statusLabel, 1,3);
 
         loginButton.setOnAction(e -> {
