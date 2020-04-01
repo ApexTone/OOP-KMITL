@@ -20,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class LoginScene extends Application {
@@ -128,9 +127,9 @@ public class LoginScene extends Application {
             output.print("johniscool");//user
             output.print(splitter);//splitter
             output.println("youcantseeme");//pass
-            output.close();//Close file to "save"
+            output.close();//Close file to "save" and for "safety"
         } catch (FileNotFoundException ex) {
-            System.out.println(ex);
+            System.out.println("Username Database can't be found/create");
         }
     }
 
@@ -143,9 +142,9 @@ public class LoginScene extends Application {
                 System.out.println(Arrays.toString(data));
             }
         } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
+            System.out.println("Username Database can't be found");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("IO exception smt");
         }
     }
 
