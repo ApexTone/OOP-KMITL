@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,7 +26,10 @@ public class LoginScene extends Application {
         stage.setTitle("Login page");
 
         Button loginButton = new Button("Login");
+        Button clearButton = new Button("Clear");
 
+        Label statusLabel = new Label("");
+        
         TextField usernameField = new TextField();
         usernameField.setPromptText("username");
         PasswordField passwordField = new PasswordField();
@@ -33,13 +37,16 @@ public class LoginScene extends Application {
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(20)); //adding "edge" area
-        grid.setHgap(10);
+        grid.setHgap(5);
         grid.setVgap(10);
+        grid.setAlignment(Pos.CENTER);
         grid.add(new Label("Username"), 0, 0); //item, column, row
         grid.add(usernameField, 1, 0);
         grid.add(new Label("Password"), 0, 1);
         grid.add(passwordField, 1, 1);
         grid.add(loginButton, 1, 2);
+        grid.add(clearButton, 2,2);
+        grid.add(statusLabel, 1,3);
 
         loginButton.setOnAction(e -> {
             String userString = usernameField.getCharacters().toString();
@@ -57,14 +64,17 @@ public class LoginScene extends Application {
                             foundUsername = true;
                             if (data[2].equals(passwordString)) {
                                 System.out.println("Login success");
+                                statusLabel.setText("Login success");
                             } else {
                                 System.out.println("Wrong password");
+                                statusLabel.setText("Incorrect password");
                             }
                             break;
                         }
                     }
                     if (!foundUsername) {
                         System.out.println("Username not found");
+                        statusLabel.setText("Username not found");
                     }
                 } catch (FileNotFoundException ex) {
                     ex.printStackTrace();
@@ -73,10 +83,15 @@ public class LoginScene extends Application {
                 }
             } else {
                 System.out.println("Missing data in either field");
+                statusLabel.setText("Missing data field(s)");
             }
-            
             usernameField.clear();
             passwordField.clear();
+        });
+        clearButton.setOnAction(e->{
+            usernameField.clear();
+            passwordField.clear();
+            statusLabel.setText("");
         });
 
         BorderPane pane = new BorderPane();
