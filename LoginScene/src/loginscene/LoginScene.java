@@ -30,8 +30,7 @@ public class LoginScene extends Application {
         
         Image creditCardImage = new Image("https://upload.wikimedia.org/wikipedia/commons/4/4f/Credit-cards.jpg");
         ImageView creditCardImageView = new ImageView(creditCardImage);
-        creditCardImageView.setFitHeight(300);
-        creditCardImageView.setFitWidth(300);
+        creditCardImageView.setFitHeight(150);
         creditCardImageView.setPreserveRatio(true);
         
         Button loginButton = new Button("Login");
@@ -45,28 +44,27 @@ public class LoginScene extends Application {
         passwordField.setPromptText("password");
 
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10)); //adding "edge" area
+        grid.setPadding(new Insets(5)); //adding "edge" area
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setAlignment(Pos.CENTER);
-        grid.add(new Label("Username"), 0, 0); //item, column, row
-        grid.add(usernameField, 1, 0);
-        grid.add(new Label("Password"), 0, 1);
-        grid.add(passwordField, 1, 1);
-        grid.add(creditCardImageView,1,4);
+        grid.add(creditCardImageView,1,0);
+        grid.add(new Label("Username"), 0, 1); //item, column, row
+        grid.add(usernameField, 1, 1);
+        grid.add(new Label("Password"), 0,2);
+        grid.add(passwordField, 1, 2);
         
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
         hBox.setSpacing(10);
         hBox.getChildren().addAll(loginButton,clearButton);
-        grid.add(hBox, 1, 2);
-        grid.add(statusLabel, 1,3);
+        grid.add(hBox, 1, 3);
+        grid.add(statusLabel, 1,4);
 
         loginButton.setOnAction(e -> {
             String userString = usernameField.getCharacters().toString();
             String passwordString = passwordField.getCharacters().toString();
             if (!userString.equals("") && !passwordString.equals("")) { //both datafield can't be null
-                //System.out.println(userString + " " +passwordString);
 
                 try {
                     BufferedReader reader = new BufferedReader(new FileReader("UserDatabase.txt"));
@@ -77,17 +75,18 @@ public class LoginScene extends Application {
                         if (data[1].equals(userString)) {
                             foundUsername = true;
                             if (data[2].equals(passwordString)) {
-                                System.out.println("Login success");
+                                //System.out.println("Login success");
                                 statusLabel.setText("Login success");
+                                AlertBox.display("Mission pass", "Respect+");
                             } else {
-                                System.out.println("Wrong password");
+                                //System.out.println("Wrong password");
                                 statusLabel.setText("Incorrect password");
                             }
                             break;
                         }
                     }
                     if (!foundUsername) {
-                        System.out.println("Username not found");
+                        //System.out.println("Username not found");
                         statusLabel.setText("Username not found");
                     }
                 } catch (FileNotFoundException ex) {
@@ -96,7 +95,7 @@ public class LoginScene extends Application {
                     ex.printStackTrace();
                 }
             } else {
-                System.out.println("Missing data in either field");
+                //System.out.println("Missing data in either field");
                 statusLabel.setText("Missing data field(s)");
             }
             usernameField.clear();
