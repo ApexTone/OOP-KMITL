@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -26,7 +28,13 @@ public class LoginScene extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Login page");
-
+        
+        Image creditCardImage = new Image("https://upload.wikimedia.org/wikipedia/commons/4/4f/Credit-cards.jpg");
+        ImageView creditCardImageView = new ImageView(creditCardImage);
+        creditCardImageView.setFitHeight(300);
+        creditCardImageView.setFitWidth(300);
+        creditCardImageView.setPreserveRatio(true);
+        
         Button loginButton = new Button("Login");
         Button clearButton = new Button("Clear");
 
@@ -46,6 +54,7 @@ public class LoginScene extends Application {
         grid.add(usernameField, 1, 0);
         grid.add(new Label("Password"), 0, 1);
         grid.add(passwordField, 1, 1);
+        grid.add(creditCardImageView,1,4);
         
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
@@ -103,7 +112,7 @@ public class LoginScene extends Application {
         BorderPane pane = new BorderPane();
         pane.setCenter(grid);
 
-        Scene loginScene = new Scene(pane, 300, 250);
+        Scene loginScene = new Scene(pane, 500, 400);
         stage.setScene(loginScene);
         stage.show();
     }
