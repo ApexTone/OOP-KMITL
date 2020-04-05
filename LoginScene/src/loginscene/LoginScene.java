@@ -35,6 +35,8 @@ public class LoginScene extends Application {
         
         Button loginButton = new Button("Login");
         Button clearButton = new Button("Clear");
+        loginButton.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
+        clearButton.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;");
 
         Label statusLabel = new Label("");
         
@@ -109,7 +111,7 @@ public class LoginScene extends Application {
 
         BorderPane pane = new BorderPane();
         pane.setCenter(grid);
-
+        pane.setStyle("-fx-background-color: BEIGE;");
         Scene loginScene = new Scene(pane, 500, 400);
         stage.setScene(loginScene);
         stage.show();
