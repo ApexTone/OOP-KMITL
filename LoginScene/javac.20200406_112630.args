@@ -1,0 +1,20 @@
+-d
+C:\\Users\\Predator\\Documents\\NetBeansProjects\\LoginScene\\build\\classes
+-classpath
+"C:\\Users\\Predator\\Documents\\NetBeansProjects\\LoginScene\\build\\classes;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.base.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.controls.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.fxml.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.graphics.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.media.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.swing.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.web.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx-swt.jar"
+-sourcepath
+C:\\Users\\Predator\\Documents\\NetBeansProjects\\LoginScene\\src
+-target
+13
+-encoding
+UTF-8
+-g
+-processorpath
+"C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.base.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.controls.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.fxml.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.graphics.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.media.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.swing.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.web.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx-swt.jar;C:\\Users\\Predator\\Documents\\NetBeansProjects\\LoginScene\\build\\empty"
+-s
+C:\\Users\\Predator\\Documents\\NetBeansProjects\\LoginScene\\build\\generated-sources\\ap-source-output
+-source
+13
+--module-path
+"C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx-swt.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.base.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.controls.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.fxml.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.graphics.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.media.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.swing.jar;C:\\Program Files\\javafx-sdk-13.0.1\\lib\\javafx.web.jar"
+C:\\Users\\Predator\\Documents\\NetBeansProjects\\LoginScene\\src\\CreditCardInfoTable\\InfoTable.java

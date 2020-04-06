@@ -10,8 +10,8 @@ package CreditCardInfoTable;
  * @author Predator
  */
 public class CreditCard {
-    public static final String GOLD="gold",SILVER="silver",BRONZE="bronze";
-    public static final String AEON="aeon",MASTERCARD="mastercard";
+    public static final String GOLD="Gold",SILVER="Silver",BRONZE="Bronze";
+    public static final String AEON="Aeon",MASTERCARD="Mastercard";
     
     private String serial, CCV, name, expDate, company, type, level, money, state, startDate;
     
