@@ -34,7 +34,7 @@ public class InfoTable extends Application {
         stage.setTitle("InfoLists");
         stage.setResizable(false);
         
-        Label listName = new Label("Information of card holder");
+        /*Label listName = new Label("Information of card holder");
         listName.setFont(new Font("Arial", 20));
         //Using ListView + HBox here instead
         ListView nameList = new ListView();
@@ -53,7 +53,7 @@ public class InfoTable extends Application {
                 }
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Username Database can't be found");
+            System.out.println("CardInfo Database can't be found");
         } catch (IOException ex) {
             System.out.println("IO exception smt");
         }   
@@ -66,8 +66,10 @@ public class InfoTable extends Application {
         vBox.setSpacing(10);
         vBox.setPadding(new Insets(5));
         vBox.getChildren().addAll(listName,hBox);
-        
-        Scene scene = new Scene(vBox,300,600);
+        */
+        MoreCardInfoPane morePane = new MoreCardInfoPane(new CreditCard(STYLESHEET_CASPIAN, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA));
+
+        Scene scene = new Scene(morePane,315,440);
         stage.setScene(scene);
         stage.show();
     }
@@ -97,7 +99,7 @@ public class InfoTable extends Application {
             output.print("05/15");
             output.close();//Close file to "save" and for "safety"
         } catch (FileNotFoundException ex) {
-            System.out.println("Username Database can't be found/create");
+            System.out.println("CardInfo Database can't be found/create");
         }
     }
 
@@ -110,7 +112,7 @@ public class InfoTable extends Application {
                 System.out.println(Arrays.toString(data));
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Username Database can't be found");
+            System.out.println("CardInfo Database can't be found");
         } catch (IOException ex) {
             System.out.println("IO exception smt");
         }
