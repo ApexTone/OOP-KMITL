@@ -3,12 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CustomPane;
+package CreditCardInfoTable;
 
-import javafx.application.Application;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import CreditCardInfoTable.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,31 +13,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  *
  * @author Predator
  */
-public class TestPane extends Application{
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        InfoPane pane = new InfoPane(new CreditCard("123456789012","CCV","John Cena","04/20","Aeon","Credit","Gold","100000","OK","05/15"));
-        Scene scene = new Scene(pane,200,300);
-        stage.setScene(scene);
-        stage.show();
-        
-    }
-    public static void main(String[] args) {
-        launch(args);
-    }
-}
-
-class InfoPane extends Pane{
+public class InfoPane extends Pane{
     private CreditCard creditCard;
     
     public InfoPane(){
@@ -112,4 +95,3 @@ class InfoPane extends Pane{
         paintInfo();
     }
 }
-

@@ -13,14 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -33,43 +26,10 @@ public class InfoTable extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("InfoLists");
         stage.setResizable(false);
-        
-        /*Label listName = new Label("Information of card holder");
-        listName.setFont(new Font("Arial", 20));
-        //Using ListView + HBox here instead
-        ListView nameList = new ListView();
-        nameList.getItems().addAll("Serial","Name","Expire Date","Company","Type","Level","Money","State","Start Date");
-        
-        ListView valueList = new ListView();
-        //read from text file
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("CardInfoDatabase.txt"));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");//split at ','
-                //System.out.println(Arrays.toString(data));
-                for(int i=0;i<data.length;i++){
-                    valueList.getItems().add(data[i]);
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            System.out.println("CardInfo Database can't be found");
-        } catch (IOException ex) {
-            System.out.println("IO exception smt");
-        }   
 
-        HBox hBox = new HBox();
-        hBox.setAlignment(Pos.CENTER);
-        hBox.getChildren().addAll(nameList,valueList);
-        
-        VBox vBox = new VBox();
-        vBox.setSpacing(10);
-        vBox.setPadding(new Insets(5));
-        vBox.getChildren().addAll(listName,hBox);
-        */
-        MoreCardInfoPane morePane = new MoreCardInfoPane(new CreditCard(STYLESHEET_CASPIAN, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA));
+        InfoPane infoPane = new InfoPane(new CreditCard(STYLESHEET_CASPIAN, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA));
 
-        Scene scene = new Scene(morePane,315,440);
+        Scene scene = new Scene(infoPane,315,440);
         stage.setScene(scene);
         stage.show();
     }

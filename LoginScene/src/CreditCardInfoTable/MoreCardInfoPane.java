@@ -35,7 +35,7 @@ public class MoreCardInfoPane extends Pane{
         return creditCard;
     }
     
-    
+
     
     public void paintMoreCardInfo(){
          Label listName = new Label("Information of card holder");
@@ -73,3 +73,4 @@ public class MoreCardInfoPane extends Pane{
     }
     
 }
+
