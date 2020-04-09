@@ -69,6 +69,7 @@ public class InfoPane extends Pane{
         moreInfoButton.setOnAction(e->{
             Stage moreStage = new Stage();
             Scene moreScene = new Scene(new MoreCardInfoPane(creditCard),315,440);
+            moreStage.setTitle("Full Card Info");
             moreStage.setScene(moreScene);
             moreStage.initModality(Modality.APPLICATION_MODAL);
             moreStage.show();

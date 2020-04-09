@@ -26,10 +26,10 @@ public class InfoTable extends Application {
     public void start(Stage stage) throws Exception {
         stage.setTitle("InfoLists");
         stage.setResizable(false);
+        
+        InfoPane infoPane = new InfoPane(new CreditCard("123456789012","CCV","John Cena","04/20","Aeon","Credit","Gold","100000","OK","05/15"));
 
-        InfoPane infoPane = new InfoPane(new CreditCard(STYLESHEET_CASPIAN, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_CASPIAN, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA, STYLESHEET_MODENA));
-
-        Scene scene = new Scene(infoPane,315,440);
+        Scene scene = new Scene(infoPane,400,500);
         stage.setScene(scene);
         stage.show();
     }
