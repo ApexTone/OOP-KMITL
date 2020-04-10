@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.Arrays;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -27,9 +28,9 @@ public class InfoTable extends Application {
         stage.setTitle("InfoLists");
         stage.setResizable(false);
         
-        InfoPane infoPane = new InfoPane(new CreditCard("123456789012","CCV","John Cena","04/20","Aeon","Credit","Gold","100000","OK","05/15"));
+        InfoPane infoPane = new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK"));
 
-        Scene scene = new Scene(infoPane,400,500);
+        Scene scene = new Scene(infoPane,300,500);
         stage.setScene(scene);
         stage.show();
     }

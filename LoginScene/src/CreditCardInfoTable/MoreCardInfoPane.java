@@ -42,11 +42,22 @@ public class MoreCardInfoPane extends Pane{
         listName.setFont(new Font("Arial", 20));
         //Using ListView + HBox here instead
         ListView nameList = new ListView();
-        nameList.getItems().addAll("Serial","Name","Expire Date","Company","Type","Level","Money","State","Start Date");
+        nameList.getItems().addAll("Serial","CCV","Name","Surname","Issue Date","Expiry Date","Type","Tier","Money Boundary","State");
         nameList.setMaxWidth(150);
     
         ListView valueList = new ListView();
-        valueList.getItems().addAll(creditCard.getSerial(),creditCard.getName(),creditCard.getExpDate(),creditCard.getCompany(),creditCard.getType(),creditCard.getLevel(),creditCard.getMoney(),creditCard.getState(),creditCard.getStartDate());
+        valueList.getItems().addAll(
+                creditCard.getSerial(),
+                creditCard.getCcv(),
+                creditCard.getName(),
+                creditCard.getSurname(),
+                creditCard.getIssueDate().toString(),
+                creditCard.getExpiryDate().toString(),
+                creditCard.getType(),
+                creditCard.getTier(),
+                creditCard.getMoneyBoundary(),
+                creditCard.getState()
+        );
         valueList.setMaxWidth(150);
         
         HBox hBox = new HBox();

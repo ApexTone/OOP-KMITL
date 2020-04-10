@@ -58,7 +58,7 @@ public class InfoPane extends Pane{
         
         Rectangle stateRect = new Rectangle(20, 30);
         stateRect.setStroke(Color.BLACK);
-        if(creditCard.getState()=="OK"){
+        if("OK".equalsIgnoreCase(creditCard.getState())){
             stateRect.setFill(Color.GREEN);
         }
         else{
