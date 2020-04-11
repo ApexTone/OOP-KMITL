@@ -24,82 +24,78 @@ import javafx.stage.Stage;
  *
  * @author Predator
  */
-public class InfoPane extends Pane{
+public class InfoPane extends Pane {
+
     private CreditCard creditCard;
-    
+
     private Rectangle stateRect = new Rectangle(20, 30);
-    private Label nameLabel=new Label(),serialLabel=new Label();
+    private Label nameLabel = new Label(), serialLabel = new Label();
     private Image cardImage = new Image("https://www.americanexpress.com/content/dam/amex/th/home-page/cards/Card_Art_full_size/THAI_Co-brand_2008.png");
     private Button moreInfoButton = new Button("More Info");
-    public InfoPane(){
-        moreInfoButton.setOnAction(e->{
-            Stage moreStage = new Stage();
-            Scene moreScene = new Scene(new MoreCardInfoPane(creditCard),315,440);
-            moreStage.setTitle("Full Card Info");
-            moreStage.setScene(moreScene);
-            moreStage.initModality(Modality.APPLICATION_MODAL);
-            moreStage.show();
-        });
+
+    public InfoPane() {
     }
-    public InfoPane(CreditCard creditCard){
+
+    public InfoPane(CreditCard creditCard) {
         this.creditCard = creditCard;
-        moreInfoButton.setOnAction(e->{
-            Stage moreStage = new Stage();
-            Scene moreScene = new Scene(new MoreCardInfoPane(creditCard),315,440);
-            moreStage.setTitle("Full Card Info");
-            moreStage.setScene(moreScene);
-            moreStage.initModality(Modality.APPLICATION_MODAL);
-            moreStage.show();
-        });
+        nameLabel.setText(creditCard.getName());
+        serialLabel.setText(creditCard.getSerial());//Belived to cause bug in paintInfo
     }
 
     public void setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
         paintInfo();
     }
+
     public CreditCard getCreditCard() {
         return creditCard;
     }
-    
-    
-    
-    public void paintInfo(){
+
+    public void paintInfo() {
+        moreInfoButton.setOnAction(e -> {
+            Stage moreStage = new Stage();
+            Scene moreScene = new Scene(new MoreCardInfoPane(creditCard), 315, 440);
+            moreStage.setTitle("Full Card Info");
+            moreStage.setScene(moreScene);
+            moreStage.initModality(Modality.APPLICATION_MODAL);
+            moreStage.show();
+            System.out.println("More Info...");
+        });
+
         ImageView cardImageView = new ImageView(cardImage);
         cardImageView.setPreserveRatio(true);
         cardImageView.setFitHeight(50);
+
         
-        nameLabel.setText(creditCard.getName());
-        serialLabel.setText(creditCard.getSerial());
         VBox vBox = new VBox();
         vBox.setSpacing(5);
         vBox.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(nameLabel,serialLabel);
-        
+        vBox.getChildren().addAll(nameLabel, serialLabel);
+
         stateRect.setStroke(Color.BLACK);
-        if("OK".equalsIgnoreCase(creditCard.getState())){
+        if ("OK".equalsIgnoreCase(creditCard.getState())) {
             stateRect.setFill(Color.GREEN);
-        }
-        else{
+        } else {
             stateRect.setFill(Color.RED);
         }
 
-        
         HBox hBox = new HBox();
         hBox.setSpacing(5);
         hBox.setAlignment(Pos.CENTER);
-        hBox.getChildren().addAll(cardImageView,vBox,stateRect,moreInfoButton);
-        
+        hBox.getChildren().addAll(cardImageView, vBox, stateRect, moreInfoButton);
+
         setPadding(new Insets(10));
         getChildren().addAll(hBox);
     }
-    
+
     @Override
-    public void setWidth(double width){
+    public void setWidth(double width) {
         super.setWidth(width);
         paintInfo();
     }
+
     @Override
-    public void setHeight(double height){
+    public void setHeight(double height) {
         super.setHeight(height);
         paintInfo();
     }

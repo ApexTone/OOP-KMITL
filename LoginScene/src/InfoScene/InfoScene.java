@@ -30,14 +30,18 @@ public class InfoScene extends Application {
         stage.setTitle("InfoLists");
         stage.setResizable(false);
         VBox vBox = new VBox();
-        
+/*
         Button addButton = new Button("Add");
-        addButton.setOnAction(e->{
-            vBox.getChildren().add( new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK")));
+        addButton.setOnAction(e -> {
+            System.out.println("Adding...");
+            vBox.getChildren().add(new MoreCardInfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK")));
+            //vBox.getChildren().add(new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK")));
         });
         vBox.getChildren().add(addButton);
-                
-        Scene scene = new Scene(vBox,300,500);
+*/
+        vBox.getChildren().add(new MoreCardInfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK")));
+        
+        Scene scene = new Scene(vBox, 300, 500);
         stage.setScene(scene);
         stage.show();
     }
@@ -52,7 +56,7 @@ public class InfoScene extends Application {
             output.print(splitter);
             output.print("John Cena");
             output.print(splitter);
-            output.print("04/20");
+            output.print("2020-04-30");
             output.print(splitter);
             output.print("Aeon");
             output.print(splitter);
@@ -64,7 +68,7 @@ public class InfoScene extends Application {
             output.print(splitter);
             output.print("OK");
             output.print(splitter);
-            output.print("05/15");
+            output.print("2026-04-30");
             output.close();//Close file to "save" and for "safety"
         } catch (FileNotFoundException ex) {
             System.out.println("CardInfo Database can't be found/create");
@@ -85,6 +89,8 @@ public class InfoScene extends Application {
             System.out.println("IO exception smt");
         }
     }
+    
+
     public static void main(String[] args) {
         launch(args);
     }

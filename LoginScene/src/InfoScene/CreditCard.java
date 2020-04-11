@@ -69,6 +69,7 @@ public class CreditCard {
     }
 
     public String getSerial() {
+        System.out.println("Getting serial");
         return serial;
     }
 

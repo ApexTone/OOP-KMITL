@@ -18,35 +18,34 @@ import javafx.scene.text.Font;
  *
  * @author Predator
  */
-public class MoreCardInfoPane extends Pane{
-    private CreditCard creditCard;
-    private ListView nameList = new ListView(),valueList = new ListView();
+public class MoreCardInfoPane extends Pane {
+
+    private CreditCard creditCard = new CreditCard();
+    private ListView nameList = new ListView(), valueList = new ListView();
     private Label listName = new Label("Information of card holder");
-        
-    public MoreCardInfoPane(){
+
+    public MoreCardInfoPane() {
         listName.setFont(new Font("Arial", 20));
-        nameList.getItems().addAll("Serial","CCV","Name","Surname","Issue Date","Expiry Date","Type","Tier","Money Boundary","State");
+        nameList.getItems().addAll("Serial", "CCV", "Name", "Surname", "Issue Date", "Expiry Date", "Type", "Tier", "Money Boundary", "State");
         nameList.setMaxWidth(150);
     }
-    public MoreCardInfoPane(CreditCard creditCard){
+
+    public MoreCardInfoPane(CreditCard creditCard) {
+        this();
         this.creditCard = creditCard;
-        listName.setFont(new Font("Arial", 20));
-        nameList.getItems().addAll("Serial","CCV","Name","Surname","Issue Date","Expiry Date","Type","Tier","Money Boundary","State");
-        nameList.setMaxWidth(150);
     }
 
     public void setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
         paintMoreCardInfo();
     }
+
     public CreditCard getCreditCard() {
         return creditCard;
     }
-    
 
-    
-    public void paintMoreCardInfo(){
-         
+    public void paintMoreCardInfo() {
+        /*
         valueList.getItems().addAll(
                 creditCard.getSerial(),
                 creditCard.getCcv(),
@@ -59,30 +58,33 @@ public class MoreCardInfoPane extends Pane{
                 creditCard.getMoneyBoundary(),
                 creditCard.getState()
         );
-        valueList.setMaxWidth(150);
+        */
+        valueList.getItems().add(creditCard.getSerial());
         
+        valueList.setMaxWidth(150);
+
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
-        hBox.getChildren().addAll(nameList,valueList);
-        
+        hBox.getChildren().addAll(nameList, valueList);
+
         VBox vBox = new VBox();
         vBox.setSpacing(10);
         vBox.setPadding(new Insets(5));
-        vBox.getChildren().addAll(listName,hBox);
-        
+        vBox.getChildren().addAll(listName, hBox);
+
         getChildren().add(vBox);
     }
-    
+
     @Override
-    public void setWidth(double width){
+    public void setWidth(double width) {
         super.setWidth(width);
         paintMoreCardInfo();
     }
+
     @Override
-    public void setHeight(double height){
+    public void setHeight(double height) {
         super.setHeight(height);
         paintMoreCardInfo();
     }
-    
-}
 
+}
