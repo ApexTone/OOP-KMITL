@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CreditCardInfoTable;
+package InfoScene;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,11 +20,19 @@ import javafx.scene.text.Font;
  */
 public class MoreCardInfoPane extends Pane{
     private CreditCard creditCard;
-    
+    private ListView nameList = new ListView(),valueList = new ListView();
+    private Label listName = new Label("Information of card holder");
+        
     public MoreCardInfoPane(){
+        listName.setFont(new Font("Arial", 20));
+        nameList.getItems().addAll("Serial","CCV","Name","Surname","Issue Date","Expiry Date","Type","Tier","Money Boundary","State");
+        nameList.setMaxWidth(150);
     }
     public MoreCardInfoPane(CreditCard creditCard){
         this.creditCard = creditCard;
+        listName.setFont(new Font("Arial", 20));
+        nameList.getItems().addAll("Serial","CCV","Name","Surname","Issue Date","Expiry Date","Type","Tier","Money Boundary","State");
+        nameList.setMaxWidth(150);
     }
 
     public void setCreditCard(CreditCard creditCard) {
@@ -38,14 +46,7 @@ public class MoreCardInfoPane extends Pane{
 
     
     public void paintMoreCardInfo(){
-         Label listName = new Label("Information of card holder");
-        listName.setFont(new Font("Arial", 20));
-        //Using ListView + HBox here instead
-        ListView nameList = new ListView();
-        nameList.getItems().addAll("Serial","CCV","Name","Surname","Issue Date","Expiry Date","Type","Tier","Money Boundary","State");
-        nameList.setMaxWidth(150);
-    
-        ListView valueList = new ListView();
+         
         valueList.getItems().addAll(
                 creditCard.getSerial(),
                 creditCard.getCcv(),

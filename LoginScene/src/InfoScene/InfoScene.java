@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CreditCardInfoTable;
+package InfoScene;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,22 +15,29 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
  *
  * @author Predator
  */
-public class InfoTable extends Application {
+public class InfoScene extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("InfoLists");
         stage.setResizable(false);
+        VBox vBox = new VBox();
         
-        InfoPane infoPane = new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK"));
-
-        Scene scene = new Scene(infoPane,300,500);
+        Button addButton = new Button("Add");
+        addButton.setOnAction(e->{
+            vBox.getChildren().add( new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK")));
+        });
+        vBox.getChildren().add(addButton);
+                
+        Scene scene = new Scene(vBox,300,500);
         stage.setScene(scene);
         stage.show();
     }
