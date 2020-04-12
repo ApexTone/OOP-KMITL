@@ -24,15 +24,13 @@ public class MoreCardInfoPane extends Pane {
     private ListView nameList = new ListView(), valueList = new ListView();
     private Label listName = new Label("Information of card holder");
 
-    public MoreCardInfoPane() {
+    public MoreCardInfoPane(CreditCard creditCard) {
         listName.setFont(new Font("Arial", 20));
         nameList.getItems().addAll("Serial", "CCV", "Name", "Surname", "Issue Date", "Expiry Date", "Type", "Tier", "Money Boundary", "State");
         nameList.setMaxWidth(150);
-    }
-
-    public MoreCardInfoPane(CreditCard creditCard) {
-        this();
+        valueList.setMaxWidth(150);
         this.creditCard = creditCard;
+
     }
 
     public void setCreditCard(CreditCard creditCard) {
@@ -45,8 +43,7 @@ public class MoreCardInfoPane extends Pane {
     }
 
     public void paintMoreCardInfo() {
-        /*
-        valueList.getItems().addAll(
+        valueList.getItems().addAll(//must invoke once
                 creditCard.getSerial(),
                 creditCard.getCcv(),
                 creditCard.getName(),
@@ -58,10 +55,6 @@ public class MoreCardInfoPane extends Pane {
                 creditCard.getMoneyBoundary(),
                 creditCard.getState()
         );
-        */
-        valueList.getItems().add(creditCard.getSerial());
-        
-        valueList.setMaxWidth(150);
 
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
@@ -72,6 +65,7 @@ public class MoreCardInfoPane extends Pane {
         vBox.setPadding(new Insets(5));
         vBox.getChildren().addAll(listName, hBox);
 
+        getChildren().clear();
         getChildren().add(vBox);
     }
 
