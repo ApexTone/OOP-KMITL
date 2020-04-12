@@ -8,7 +8,6 @@ package ch14;
 import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -28,9 +27,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -344,7 +340,7 @@ public class MyJavaFX extends Application {//extends Application to provide Java
         primaryStage.show(); // Display the stage
     }
 
-    public static void displayClock(Stage primaryStage) {
+    public static void displayClock(Stage primaryStage) { //using custom clock pane
         // Create a clock and a label
         ClockPane clock = new ClockPane();
         String timeString = clock.getHour() + ":" + clock.getMinute()
