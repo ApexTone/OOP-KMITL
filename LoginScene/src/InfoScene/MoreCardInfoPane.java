@@ -30,6 +30,18 @@ public class MoreCardInfoPane extends Pane {
         nameList.setMaxWidth(150);
         valueList.setMaxWidth(150);
         this.creditCard = creditCard;
+        valueList.getItems().addAll(//must invoke once
+                creditCard.getSerial(),
+                creditCard.getCcv(),
+                creditCard.getName(),
+                creditCard.getSurname(),
+                creditCard.getIssueDate().toString(),
+                creditCard.getExpiryDate().toString(),
+                creditCard.getType(),
+                creditCard.getTier(),
+                creditCard.getMoneyBoundary(),
+                creditCard.getState()
+        );
 
     }
 
@@ -43,18 +55,7 @@ public class MoreCardInfoPane extends Pane {
     }
 
     public void paintMoreCardInfo() {
-        valueList.getItems().addAll(//must invoke once
-                creditCard.getSerial(),
-                creditCard.getCcv(),
-                creditCard.getName(),
-                creditCard.getSurname(),
-                creditCard.getIssueDate().toString(),
-                creditCard.getExpiryDate().toString(),
-                creditCard.getType(),
-                creditCard.getTier(),
-                creditCard.getMoneyBoundary(),
-                creditCard.getState()
-        );
+        
 
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER);
