@@ -65,13 +65,13 @@ public class LoginScene extends Application {
                                         statusLabel.setText("Login success");
                                         AlertBox.display("Mission pass", "Respect+");
                                     } else {
-                                        statusLabel.setText("Incorrect password");
+                                        statusLabel.setText("Incorrect username or password");
                                     }
                                     break;
                                 }
                             }
                             if (!foundUsername) {
-                                statusLabel.setText("Username not found");
+                                statusLabel.setText("Incorrect username or password");
                             }
                         } catch (FileNotFoundException ex) {
                             ex.printStackTrace();
@@ -105,13 +105,13 @@ public class LoginScene extends Application {
                                         statusLabel.setText("Login success");
                                         AlertBox.display("Mission pass", "Respect+");
                                     } else {
-                                        statusLabel.setText("Incorrect password");
+                                        statusLabel.setText("Incorrect username or password");
                                     }
                                     break;
                                 }
                             }
                             if (!foundUsername) {
-                                statusLabel.setText("Username not found");
+                                statusLabel.setText("Incorrect username or password");
                             }
                         } catch (FileNotFoundException ex) {
                             ex.printStackTrace();
@@ -162,13 +162,13 @@ public class LoginScene extends Application {
                                 statusLabel.setText("Login success");
                                 AlertBox.display("Mission pass", "Respect+");
                             } else {
-                                statusLabel.setText("Incorrect password");
+                                statusLabel.setText("Incorrect username or password");
                             }
                             break;
                         }
                     }
                     if (!foundUsername) {
-                        statusLabel.setText("Username not found");
+                        statusLabel.setText("Incorrect username or password");
                     }
                 } catch (FileNotFoundException ex) {
                     ex.printStackTrace();
@@ -229,7 +229,6 @@ public class LoginScene extends Application {
 
 
     public static void main(String[] args) {
-        //createMockDatabase();
         launch(args);
     }
 }
