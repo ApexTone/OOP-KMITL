@@ -63,7 +63,7 @@ public class LoginScene extends Application {
                                     foundUsername = true;
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
-                                        AlertBox.display("Mission pass", "Respect+");
+                                        AlertBox.display("Login success", "Success");
                                     } else {
                                         statusLabel.setText("Incorrect username or password");
                                     }
@@ -103,7 +103,7 @@ public class LoginScene extends Application {
                                     foundUsername = true;
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
-                                        AlertBox.display("Mission pass", "Respect+");
+                                        AlertBox.display("Login success", "Success");
                                     } else {
                                         statusLabel.setText("Incorrect username or password");
                                     }
@@ -160,7 +160,7 @@ public class LoginScene extends Application {
                             foundUsername = true;
                             if (data[2].equals(passwordString)) {
                                 statusLabel.setText("Login success");
-                                AlertBox.display("Mission pass", "Respect+");
+                                AlertBox.display("Login success", "Success");
                             } else {
                                 statusLabel.setText("Incorrect username or password");
                             }

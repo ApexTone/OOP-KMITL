@@ -37,9 +37,10 @@ public class CreditCard {
     private String tier;
     private String moneyBoundary;
     private String state;
+    
+    private int paid=0,balance;
 
     public CreditCard() {
-
     }
 
     public CreditCard(String serial, String name, String surname, LocalDate issueDate, LocalDate expiryDate, String type, String tier, String moneyBoundary, String state) {
@@ -53,6 +54,7 @@ public class CreditCard {
         this.tier = tier;
         this.moneyBoundary = moneyBoundary;
         this.state = state;
+        this.balance = Integer.parseInt(moneyBoundary);
     }
 
     public CreditCard(String serial, String ccv, String name, String surname, LocalDate issueDate, LocalDate expiryDate, String type, String tier, String moneyBoundary, String state) {
@@ -66,6 +68,7 @@ public class CreditCard {
         this.tier = tier;
         this.moneyBoundary = moneyBoundary;
         this.state = state;
+        this.balance = Integer.parseInt(moneyBoundary);
     }
 
     public String getSerial() {
@@ -181,6 +184,24 @@ public class CreditCard {
         return moneyBoundary;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public int getPaid() {
+        return paid;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void setPaid(int paid) {
+        this.paid = paid;
+    }
+    
+    
+
     public void setMoneyBoundary(String moneyBoundary) {
         this.moneyBoundary = moneyBoundary;
     }
@@ -235,13 +256,11 @@ public class CreditCard {
     }
 
     public void addCardButtonClick() throws IOException {
-
         String bufferName = null;
         String bufferSurname= null;
         String bufferType= null;
         String bufferTier= null;
         String bufferMoneyBoundary= null;
-
     }
 
     public static void confirmCreateCard() throws IOException {
@@ -314,9 +333,10 @@ public class CreditCard {
 
     @Override
     public String toString() {
-        return "CreditCard { " + "Serial= " + serial + ", CCV= " + ccv + ", Name= " + name + ", Surname= " + surname + ", IssueDate= " + issueDate + ", ExpiryDate= " + expiryDate + ", Type= " + type + ", Tier= " + tier + ", MoneyBoundary= " + moneyBoundary + ", State= " + state + " }";
+        return "CreditCard{" + "serial=" + serial + ", ccv=" + ccv + ", name=" + name + ", surname=" + surname + ", issueDate=" + issueDate + ", expiryDate=" + expiryDate + ", type=" + type + ", tier=" + tier + ", moneyBoundary=" + moneyBoundary + ", state=" + state + ", paid=" + paid + ", balance=" + balance + '}';
     }
 
+    
 }
 
 class RandomStringNumber { 
