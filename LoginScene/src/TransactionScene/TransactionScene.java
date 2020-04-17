@@ -20,7 +20,8 @@ public class TransactionScene extends Application{ //Create each file for each i
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Transaction Scene");
-        TransactionPane tp = new TransactionPane(creditCard);
+        TransactionPane tp = new TransactionPane(creditCard); //add this action to button
+        //System.out.println(creditCard.getBalance());
         
         Scene scene = new Scene(tp);
         stage.setScene(scene);

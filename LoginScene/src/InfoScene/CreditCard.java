@@ -38,7 +38,7 @@ public class CreditCard {
     private String moneyBoundary;
     private String state;
     
-    private int paid=0,balance;
+    private double paid=0,balance;
 
     public CreditCard() {
     }
@@ -72,7 +72,6 @@ public class CreditCard {
     }
 
     public String getSerial() {
-        System.out.println("Getting serial");
         return serial;
     }
 
@@ -184,23 +183,21 @@ public class CreditCard {
         return moneyBoundary;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public int getPaid() {
+    public double getPaid() {
         return paid;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    public void setPaid(int paid) {
+    public void setPaid(double paid) {
         this.paid = paid;
     }
-    
-    
 
     public void setMoneyBoundary(String moneyBoundary) {
         this.moneyBoundary = moneyBoundary;
