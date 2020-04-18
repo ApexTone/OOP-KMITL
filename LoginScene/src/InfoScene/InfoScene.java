@@ -34,7 +34,7 @@ public class InfoScene extends Application {
         Button addButton = new Button("Add");
         addButton.setOnAction(e -> {
             System.out.println("Adding...");
-            vBox.getChildren().add(new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Platinum", "100000", "OK")));
+            vBox.getChildren().add(new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Bronze", "100000", "OK")));
         });
         vBox.getChildren().add(addButton);
         

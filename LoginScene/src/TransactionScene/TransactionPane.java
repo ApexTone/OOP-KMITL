@@ -14,10 +14,14 @@ import java.io.IOException;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -88,12 +92,13 @@ public class TransactionPane extends Pane {
         tableView = new TableView(transactionList);
         tableView.getColumns().addAll(transactionDateColumn, shopColumn, itemColumn, paidColumn);
         tableView.getSortOrder().add(transactionDateColumn);//Make it sort by transaction date by default
+        
     }
 
-    public void paintTransactionTable() {
+    public void paintTransactionTable() {     
         VBox vBox = new VBox();
-        vBox.setSpacing(5);
-        vBox.getChildren().addAll(nameLabel, tableView);
+        vBox.setSpacing(5);        
+        vBox.getChildren().addAll(nameLabel,tableView);
 
         getChildren().add(vBox);
     }

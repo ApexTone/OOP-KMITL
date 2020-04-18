@@ -20,17 +20,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Predator
- */
 public class InfoPane extends Pane {
 
     private CreditCard creditCard;
 
     private Rectangle stateRect = new Rectangle(20, 30);
     private Label nameLabel = new Label(), serialLabel = new Label();
-    private Image cardImage = new Image("https://www.americanexpress.com/content/dam/amex/th/home-page/cards/Card_Art_full_size/THAI_Co-brand_2008.png");
+    private Image cardImage;
     private Button moreInfoButton = new Button("More Info");
 
     public InfoPane() {
@@ -39,7 +35,17 @@ public class InfoPane extends Pane {
     public InfoPane(CreditCard creditCard) {
         this.creditCard = creditCard;
         nameLabel.setText(creditCard.getName());
-        serialLabel.setText(creditCard.getSerial());//Belived to cause bug in paintInfo
+        serialLabel.setText(creditCard.getSerial());
+
+        if (creditCard.getTier().equalsIgnoreCase("platinum")) {
+            cardImage = new Image("https://www.americanexpress.com/content/dam/amex/th/home-page/cards/Card_Art_full_size/THAI_Co-brand_2008.png");
+        } else if (creditCard.getTier().equalsIgnoreCase("gold")) {
+            cardImage = new Image("https://www.pngitem.com/pimgs/m/223-2234640_credit-card-png-green-dot-debit-card-transparent.png");
+        } else if (creditCard.getTier().equalsIgnoreCase("silver")) {
+            cardImage = new Image("https://www.dusitgold.com/assets/layouts/frontend/images/flyerbonus-card.png");
+        } else {
+            cardImage = new Image("https://www.kindpng.com/picc/m/116-1162427_visa-international-credit-card-hd-png-download.png");
+        }
     }
 
     public void setCreditCard(CreditCard creditCard) {
@@ -66,7 +72,6 @@ public class InfoPane extends Pane {
         cardImageView.setPreserveRatio(true);
         cardImageView.setFitHeight(50);
 
-        
         VBox vBox = new VBox();
         vBox.setSpacing(5);
         vBox.setAlignment(Pos.CENTER);
