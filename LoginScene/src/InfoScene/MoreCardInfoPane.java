@@ -7,6 +7,7 @@ package InfoScene;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
@@ -19,10 +20,10 @@ import javafx.scene.text.Font;
  * @author Predator
  */
 public class MoreCardInfoPane extends Pane {
-
     private CreditCard creditCard = new CreditCard();
     private ListView nameList = new ListView(), valueList = new ListView();
     private Label listName = new Label("Information of card holder");
+    private Button deleteButton = new Button("Delete");
 
     public MoreCardInfoPane(CreditCard creditCard) {
         listName.setFont(new Font("Arial", 20));
@@ -45,27 +46,27 @@ public class MoreCardInfoPane extends Pane {
 
     }
 
-    public void setCreditCard(CreditCard creditCard) {
-        this.creditCard = creditCard;
-        paintMoreCardInfo();
-    }
 
     public CreditCard getCreditCard() {
         return creditCard;
     }
 
     public void paintMoreCardInfo() {
-        
-
         HBox hBox = new HBox();
+        HBox topHBox = new HBox();
+        
         hBox.setAlignment(Pos.CENTER);
         hBox.getChildren().addAll(nameList, valueList);
 
+        topHBox.getChildren().addAll(listName,deleteButton);
+        topHBox.setSpacing(5);
+        
         VBox vBox = new VBox();
         vBox.setSpacing(10);
         vBox.setPadding(new Insets(5));
-        vBox.getChildren().addAll(listName, hBox);
-
+        
+        vBox.getChildren().addAll(topHBox,hBox);
+         
         getChildren().clear();
         getChildren().add(vBox);
     }

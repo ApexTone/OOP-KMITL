@@ -61,6 +61,7 @@ public class InfoPane extends Pane {
             Scene moreScene = new Scene(new MoreCardInfoPane(creditCard), 315, 440);
             moreStage.setTitle("Full Card Info");
             moreStage.setScene(moreScene);
+            moreStage.setResizable(false);
             moreStage.initModality(Modality.APPLICATION_MODAL);
             moreStage.show();
             System.out.println("More Info...");
@@ -70,6 +71,7 @@ public class InfoPane extends Pane {
             Scene moreScene = new Scene(new TransactionPane(creditCard));
             moreStage.setTitle("Transaction Info");
             moreStage.setScene(moreScene);
+            moreStage.setResizable(false);
             moreStage.initModality(Modality.APPLICATION_MODAL);
             moreStage.show();
             System.out.println("Transaction");
