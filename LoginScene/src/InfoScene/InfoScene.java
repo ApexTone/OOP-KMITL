@@ -24,23 +24,29 @@ import javafx.stage.Stage;
  * @author Predator
  */
 public class InfoScene extends Application {
-
+    CreditCard creditCard = new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Bronze", "100000", "OK");
+    
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("InfoLists");
+        stage.setScene(getScene(stage));
+        stage.show();
+    }
+    
+    public Scene getScene(Stage stage){
+        stage.setTitle("Info Lists");
         stage.setResizable(false);
         VBox vBox = new VBox();
 
         Button addButton = new Button("Add");
         addButton.setOnAction(e -> {
             System.out.println("Adding...");
-            vBox.getChildren().add(new InfoPane(new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Bronze", "100000", "OK")));
+            vBox.getChildren().add(new InfoPane(creditCard));
         });
         vBox.getChildren().add(addButton);
         
         Scene scene = new Scene(vBox, 360, 600);
-        stage.setScene(scene);
-        stage.show();
+        
+        return scene;
     }
     
     public static void createMockDatabase() {//creat mock database

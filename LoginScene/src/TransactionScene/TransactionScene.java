@@ -10,6 +10,7 @@ package TransactionScene;
  * @author Predator
  */
 import InfoScene.CreditCard;
+import InfoScene.InfoScene;
 import java.time.LocalDate;
 import javafx.application.Application;
 import javafx.scene.Scene;
