@@ -24,6 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class LoginScene extends Application {
+    String adminName;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -63,6 +64,7 @@ public class LoginScene extends Application {
                                     foundUsername = true;
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
+                                        adminName = userString;
                                         AlertBox.display("Login success", "Success");
                                     } else {
                                         statusLabel.setText("Incorrect username or password");
@@ -103,6 +105,7 @@ public class LoginScene extends Application {
                                     foundUsername = true;
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
+                                        adminName = userString;
                                         AlertBox.display("Login success", "Success");
                                     } else {
                                         statusLabel.setText("Incorrect username or password");
@@ -160,6 +163,7 @@ public class LoginScene extends Application {
                             foundUsername = true;
                             if (data[2].equals(passwordString)) {
                                 statusLabel.setText("Login success");
+                                adminName = userString;
                                 AlertBox.display("Login success", "Success");
                             } else {
                                 statusLabel.setText("Incorrect username or password");
