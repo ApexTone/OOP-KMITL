@@ -38,7 +38,7 @@ public class InfoScene extends Application {
         });
         vBox.getChildren().add(addButton);
         
-        Scene scene = new Scene(vBox, 300, 500);
+        Scene scene = new Scene(vBox, 360, 600);
         stage.setScene(scene);
         stage.show();
     }

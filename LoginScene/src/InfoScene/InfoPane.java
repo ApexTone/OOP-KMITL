@@ -5,6 +5,7 @@
  */
 package InfoScene;
 
+import TransactionScene.TransactionPane;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -27,10 +28,7 @@ public class InfoPane extends Pane {
     private Rectangle stateRect = new Rectangle(20, 30);
     private Label nameLabel = new Label(), serialLabel = new Label();
     private Image cardImage;
-    private Button moreInfoButton = new Button("More Info");
-
-    public InfoPane() {
-    }
+    private Button moreInfoButton = new Button("More Info"),transactionButton = new Button("Transaction");
 
     public InfoPane(CreditCard creditCard) {
         this.creditCard = creditCard;
@@ -67,6 +65,15 @@ public class InfoPane extends Pane {
             moreStage.show();
             System.out.println("More Info...");
         });
+        transactionButton.setOnAction(e->{
+            Stage moreStage = new Stage();
+            Scene moreScene = new Scene(new TransactionPane(creditCard));
+            moreStage.setTitle("Transaction Info");
+            moreStage.setScene(moreScene);
+            moreStage.initModality(Modality.APPLICATION_MODAL);
+            moreStage.show();
+            System.out.println("Transaction");
+        });
 
         ImageView cardImageView = new ImageView(cardImage);
         cardImageView.setPreserveRatio(true);
@@ -87,7 +94,7 @@ public class InfoPane extends Pane {
         HBox hBox = new HBox();
         hBox.setSpacing(5);
         hBox.setAlignment(Pos.CENTER);
-        hBox.getChildren().addAll(cardImageView, vBox, stateRect, moreInfoButton);
+        hBox.getChildren().addAll(cardImageView, vBox, stateRect, moreInfoButton,transactionButton);
 
         setPadding(new Insets(10));
         getChildren().addAll(hBox);
