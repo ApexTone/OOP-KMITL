@@ -23,7 +23,7 @@ public class MoreCardInfoPane extends Pane {
     private CreditCard creditCard = new CreditCard();
     private ListView nameList = new ListView(), valueList = new ListView();
     private Label listName = new Label("Information of card holder");
-    private Button deleteButton = new Button("Delete");
+    private Button toggleStatusButton = new Button("Toggle Status");
 
     public MoreCardInfoPane(CreditCard creditCard) {
         listName.setFont(new Font("Arial", 20));
@@ -55,11 +55,11 @@ public class MoreCardInfoPane extends Pane {
         HBox hBox = new HBox();
         HBox topHBox = new HBox();
         
+        topHBox.getChildren().addAll(listName,toggleStatusButton);
+        topHBox.setSpacing(5);
+        
         hBox.setAlignment(Pos.CENTER);
         hBox.getChildren().addAll(nameList, valueList);
-
-        topHBox.getChildren().addAll(listName,deleteButton);
-        topHBox.setSpacing(5);
         
         VBox vBox = new VBox();
         vBox.setSpacing(10);

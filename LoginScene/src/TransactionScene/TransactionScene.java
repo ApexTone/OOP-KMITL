@@ -22,12 +22,13 @@ public class TransactionScene extends Application{ //Create each file for each i
     public void start(Stage stage) throws Exception {
         stage.setTitle("Transaction Scene");
         TransactionPane tp = new TransactionPane(creditCard); //add this action to button
-        //System.out.println(creditCard.getBalance());
         
         Scene scene = new Scene(tp);
         stage.setScene(scene);
         stage.show();
     }
+    
+    
     
     public static void main(String[] args) {
         launch(args);

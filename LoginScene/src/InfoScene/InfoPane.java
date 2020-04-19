@@ -31,10 +31,13 @@ public class InfoPane extends Pane {
     private Button moreInfoButton = new Button("More Info"),transactionButton = new Button("Transaction");
 
     public InfoPane(CreditCard creditCard) {
+        setCreditCard(creditCard);
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
         nameLabel.setText(creditCard.getName());
         serialLabel.setText(creditCard.getSerial());
-
         if (creditCard.getTier().equalsIgnoreCase("platinum")) {
             cardImage = new Image("https://www.americanexpress.com/content/dam/amex/th/home-page/cards/Card_Art_full_size/THAI_Co-brand_2008.png");
         } else if (creditCard.getTier().equalsIgnoreCase("gold")) {
@@ -44,10 +47,6 @@ public class InfoPane extends Pane {
         } else {
             cardImage = new Image("https://www.kindpng.com/picc/m/116-1162427_visa-international-credit-card-hd-png-download.png");
         }
-    }
-
-    public void setCreditCard(CreditCard creditCard) {
-        this.creditCard = creditCard;
         paintInfo();
     }
 

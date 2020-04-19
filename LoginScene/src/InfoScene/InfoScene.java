@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package InfoScene;
 
 import java.io.BufferedReader;
@@ -19,10 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Predator
- */
 public class InfoScene extends Application {
     CreditCard creditCard = new CreditCard("12345678901234", "John", "Cena", LocalDate.parse("2020-04-30"), LocalDate.parse("2026-04-30"), "Credit", "Bronze", "100000", "OK");
     
