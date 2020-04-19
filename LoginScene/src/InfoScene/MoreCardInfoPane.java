@@ -42,8 +42,7 @@ public class MoreCardInfoPane extends Pane {
                 creditCard.getTier(),
                 creditCard.getMoneyBoundary(),
                 creditCard.getState()
-        );
-
+        ); 
     }
 
 
@@ -52,9 +51,21 @@ public class MoreCardInfoPane extends Pane {
     }
 
     public void paintMoreCardInfo() {
+        toggleStatusButton.setOnAction(e->{
+            if(creditCard.getState().equalsIgnoreCase("normal")){
+                System.out.println("to forfeit");
+                creditCard.setState("forfeit");
+            }
+            else{
+                System.out.println("to normal");
+                creditCard.setState("normal");
+            }
+        });
+        
         HBox hBox = new HBox();
         HBox topHBox = new HBox();
         
+        toggleStatusButton.setText("Toggle Status");
         topHBox.getChildren().addAll(listName,toggleStatusButton);
         topHBox.setSpacing(5);
         
