@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -24,6 +26,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class LoginScene extends Application {
+
     String adminName;
 
     @Override
@@ -46,7 +49,7 @@ public class LoginScene extends Application {
         usernameField.setPromptText("username");
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("password");
-        
+
         usernameField.setOnKeyPressed(e -> {
             if (e.getCode().equals(KeyCode.ENTER)) {
                 {
@@ -65,7 +68,10 @@ public class LoginScene extends Application {
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
                                         adminName = userString;
-                                        AlertBox.display("Login success", "Success");
+                                        //AlertBox.display("Login success", "Success");
+                                        
+                                        stage.setScene(new InfoScene.InfoScene().getScene(stage));
+                                        
                                     } else {
                                         statusLabel.setText("Incorrect username or password");
                                     }
@@ -106,7 +112,10 @@ public class LoginScene extends Application {
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
                                         adminName = userString;
-                                        AlertBox.display("Login success", "Success");
+                                        //AlertBox.display("Login success", "Success");
+                                        
+                                        stage.setScene(new InfoScene.InfoScene().getScene(stage));
+                                        
                                     } else {
                                         statusLabel.setText("Incorrect username or password");
                                     }
@@ -164,7 +173,10 @@ public class LoginScene extends Application {
                             if (data[2].equals(passwordString)) {
                                 statusLabel.setText("Login success");
                                 adminName = userString;
-                                AlertBox.display("Login success", "Success");
+                                //AlertBox.display("Login success", "Success");
+                                
+                                stage.setScene(new InfoScene.InfoScene().getScene(stage));
+                                
                             } else {
                                 statusLabel.setText("Incorrect username or password");
                             }
@@ -197,6 +209,7 @@ public class LoginScene extends Application {
         Scene loginScene = new Scene(pane, 500, 400);
         stage.setScene(loginScene);
         stage.show();
+
     }
 
     public static void createMockDatabase() {//creat mock database
@@ -214,6 +227,7 @@ public class LoginScene extends Application {
         } catch (FileNotFoundException ex) {
             System.out.println("Username Database can't be found/create");
         }
+
     }
 
     public static void testCSV() {
@@ -230,7 +244,6 @@ public class LoginScene extends Application {
             System.out.println("IO exception smt");
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);
