@@ -67,7 +67,7 @@ public class LoginScene extends Application {
                                     foundUsername = true;
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
-                                        adminName = userString;
+                                        adminName = data[0];
                                         //AlertBox.display("Login success", "Success");
                                         
                                         stage.setScene(new InfoScene.InfoScene().getScene(stage));
@@ -111,7 +111,7 @@ public class LoginScene extends Application {
                                     foundUsername = true;
                                     if (data[2].equals(passwordString)) {
                                         statusLabel.setText("Login success");
-                                        adminName = userString;
+                                        adminName = data[0];
                                         //AlertBox.display("Login success", "Success");
                                         
                                         stage.setScene(new InfoScene.InfoScene().getScene(stage));
@@ -172,7 +172,7 @@ public class LoginScene extends Application {
                             foundUsername = true;
                             if (data[2].equals(passwordString)) {
                                 statusLabel.setText("Login success");
-                                adminName = userString;
+                                adminName = data[0];
                                 //AlertBox.display("Login success", "Success");
                                 
                                 stage.setScene(new InfoScene.InfoScene().getScene(stage));
